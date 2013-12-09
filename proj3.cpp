@@ -1,4 +1,3 @@
-//test
 #define INT_MAX 2147483647
 
 #include <iostream>
@@ -55,22 +54,16 @@ int main(){
 
 	infile >> temp;			//get first vertex
 	while(infile){
-		if(Vertices[temp-65] == false){
-			//cout << "\nV did not contain: " << temp;
+		if(Vertices[temp-65] == false)
 			Vertices[temp-65] = true;
-		}
-		//else
-			//cout << "\nV already contains: " << temp;
+
 		E.from = temp;
 
 
 		infile >> temp;		//get second vertex
-		if(Vertices[temp-65] == false){
-			//cout << "\nV did not contain: " << temp;
+		if(Vertices[temp-65] == false)
 			Vertices[temp-65] = true;
-		}
-		//else
-			//cout << "\nV already contains: " << temp;
+
 		E.to = temp;
 
 		
@@ -90,12 +83,6 @@ int main(){
 		infile >> temp;		//get first vertex for next run
 	}//done reading file
 
-/*	
-	cout << "\n\nEDGES:\n";
-	for(int i = 0; i < Edges.size(); i++)		//for all edges
-		cout << Edges[i].from << " " << Edges[i].to << " " << Edges[i].weight << endl;
-	cout << endl;
-*/
 	infile.close();
 	cout << "\nFinished reading file.\n\nFor Dijkstra's, please input source node: ";
 	cin >> source;
@@ -115,16 +102,7 @@ int main(){
 			Q.push_back(V);
 		}
 	}
-/*	
-	cout << endl;
-	for(int i = 0; i < Q.size(); i++){
-		cout << Q[i].id << " " << Q[i].weightto << "	";
-	}
-	cout << endl;
-	for(int i = 0; i < S.size(); i++){
-		cout << S[i].id << " " << S[i].weightto << "	";
-	}
-*/	
+
 	while(!Q.empty()){
 		Vertex smallest;
 		smallest.id = '*';
@@ -138,8 +116,7 @@ int main(){
 				index = i;
 			}
 		}
-//		cout << "\nIndex: " << index;
-//		cout << "\nUsing: " << smallest.id;
+
 		Vertex u = smallest;
 
 		Q.erase(Q.begin()+index);
@@ -157,17 +134,6 @@ int main(){
 		}
 
 		S.push_back(u);
-/*
-		cout << endl;
-		cout << endl;
-		for(int i = 0; i < Q.size(); i++){
-			cout << Q[i].id << " " << Q[i].weightto << "	";
-		}
-		cout << endl;
-		for(int i = 0; i < S.size(); i++){
-			cout << S[i].id << " " << S[i].weightto << "	";
-		}
-*/
 	}
 
 	ofstream outfile;
@@ -208,15 +174,6 @@ int main(){
 		}
 	}
 	
-	cout << endl;
-	for(int i = 0; i < Q.size(); i++){
-		cout << Q[i].id << " " << Q[i].weightto << " " << Q[i].lengthto << "	";
-	}
-	cout << endl;
-	for(int i = 0; i < S.size(); i++){
-		cout << S[i].id << " " << S[i].weightto << " " << S[i].lengthto << "	";
-	}
-	
 	while(!Q.empty()){
 		Vertex smallest;
 		smallest.id = '*';
@@ -232,8 +189,7 @@ int main(){
 				index = i;
 			}
 		}
-//		cout << "\nIndex: " << index;
-//		cout << "\nUsing: " << smallest.id;
+
 		Vertex u = smallest;
 
 		Q.erase(Q.begin()+index);
@@ -252,17 +208,6 @@ int main(){
 		}
 
 		S.push_back(u);
-
-		cout << endl;
-		cout << endl;
-		for(int i = 0; i < Q.size(); i++){
-			cout << Q[i].id << " " << Q[i].weightto << " " << Q[i].lengthto <<"	";
-		}
-		cout << endl;
-		for(int i = 0; i < S.size(); i++){
-			cout << S[i].id << " " << S[i].weightto <<  " " << S[i].lengthto <<"	";
-		}
-
 	}
 
 	outfile << "\n\nSRPA\n";
