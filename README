@@ -1,1 +1,4 @@
-Hello World!
+To compile this code simply run the command "make" on the directory containing all the project contents.
+
+To run the program simply use the sommand "shortestpaths" on the same directory, only after having compiled it using make.
+The program does not take any command line arguments, but rather requests user imput for such arguments. Input the arguments when asked by the program.
